@@ -22,7 +22,7 @@ LikesService.prototype.getDislikes = function() {
     return this.dislikes;
 }
 
-// Comment
+// Comment hereda las propiedades de LikesService
 function Comment(msg) {
     LikesService.call(this)
     this.message = msg
@@ -53,3 +53,28 @@ const thread = new CommentsService();
 console.log(thread)
 console.log('\n')
 
+console.log("Si llamamos a la funcion getComments vemos que viene vacia porque todavia no agregamos nada")
+console.log(thread)
+console.log('\n')
+
+console.log("Creamos una nueva instancia de un comentario con un mensaje que querramos")
+const firstComment = new Comment("This is a test");
+console.log(firstComment)
+console.log('\n')
+
+console.log("Agregamos nuestro comentario a nuestro thread")
+thread.addComment(firstComment)
+console.log(thread)
+console.log('\n')
+
+console.log("Ahora nuestro thread tiene un comentario")
+console.log(thread.getComments())
+console.log('\n')
+
+console.log("Le damos like a nuestro comentario")
+firstComment.like();
+console.log(firstComment)
+console.log('\n')
+
+console.log("Vemos que nuestro comentario tiene un like dentro de nuestro thread")
+console.log(thread.getComments())
